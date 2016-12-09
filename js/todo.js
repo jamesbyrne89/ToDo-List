@@ -1,5 +1,4 @@
 function newItem() {
-	var item = document.getElementById('input').value;
 	var ul = document.getElementById("list");
 	var li = document.createElement('li');
   li.appendChild(document.createTextNode(item));
@@ -10,8 +9,10 @@ function newItem() {
 }
 
 document.body.onkeyup = function(e){
-      if(e.keyCode == 13){
+  var item = document.getElementById('input').value;
+      if(e.keyCode == 13 && item!==""){
         newItem();
+        console.log(item);
       }
   }
 
