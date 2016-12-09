@@ -1,0 +1,157 @@
+
+ * {
+	box-sizing: border-box;
+	font-family: 'poppins', helvetica, sans-serif;
+}
+
+body{
+
+margin: 0px;
+background: #A1FFCE; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #A1FFCE , #FAFFD1); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #A1FFCE , #FAFFD1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+#date_wrapper_left {
+	width: 90px;
+	height: auto;
+}
+
+#date_wrapper {
+	color: #888;
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 0px;
+}
+
+#date{
+	font-size: 3em;
+	line-height: 1em;
+	margin: 0;
+	text-align: left;
+	display: inline-block;
+}
+
+.date_wrapper_small {
+	display: inline-block;
+	margin-left: 0.25em;
+}
+
+#month{
+	font-size: 1em;
+	text-align: left;
+	text-transform: uppercase;
+	display: block;
+	line-height: 1em;
+	margin: 0px;
+}
+#year{
+	font-size: 1em;
+	text-align: left;
+	line-height: 1.5em;
+	font-weight: 400;
+	margin: 0px;
+}
+
+#day {
+	font-size: 1.25em;
+	line-height: 1em;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+hr {
+	width: 20px;
+	text-align: left;
+	margin-left: 0px;
+	color: #888;
+	height: 2px;
+}
+
+
+@media (min-width: 280px) {
+ .app_wrapper {
+ 	width: 100%;
+ }
+
+
+
+
+.app_wrapper {
+	margin: 5vh 0 0 0;
+	min-height: 95vh;
+	background-color: rgba(255,255,255,1);
+	padding: 20px;
+	width: 100%;
+	#input {
+		width: 100%;
+		border: none;
+		height: 60px;
+		padding: 10px;
+		font-size: 1.25em;
+		margin-bottom: 20px;
+	}
+	#input:focus{
+		outline: none;
+	}
+}
+
+h1 {
+	color: #888;
+	font-size: 1em;
+}
+
+
+
+
+
+#list {
+	width: 100%;
+	padding: 0px;
+	width: 100%;
+		li {
+			height: 3.5em;
+			line-height: 2em;
+			border-bottom: solid 2px #eee;
+			font-size: 1.25em;
+			list-style: none;
+			padding: 20px 10px 10px 10px;
+			color: #888;
+			background-color: white;
+			display: block;
+			transition: all ease 0.2s;
+		}
+	li:hover {
+		    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-1px);
+    box-shadow: 0 15px 50px -20px rgba(0,0,0,0.3);
+	}
+}
+}
+
+@media (min-width: 600px) {
+ .app_wrapper {
+ 	width: 80%;
+ 	margin: 5vh auto;
+ 	min-height: 90vh;
+ }
+}
+
+@media (min-width: 900px) {
+  .app_wrapper {
+ 	width: 60%;
+ 	padding: 20px 40px;
+ 	margin: 5vh auto;
+ 	min-height: 90vh;
+ }
+}
+
+@media (min-width: 1200px) {
+  .app_wrapper {
+ 	width: 40%;
+ 	margin: 5vh auto;
+ 	min-height: 90vh;
+ }
+}
