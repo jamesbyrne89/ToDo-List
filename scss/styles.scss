@@ -14,9 +14,9 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 body{
 
 margin: 0px;
-background: #A1FFCE; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #A1FFCE , #FAFFD1); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #A1FFCE , #FAFFD1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #B3FFAB; /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #B3FFAB , #12FFF7); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #B3FFAB , #12FFF7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */     
 color: $mainTextColour;
 }
 
@@ -214,13 +214,13 @@ background: transparent;
 			text-decoration: none;
 		}
 		a:hover {
-			font-style: italic;
+		text-decoration: underline ;
 		transform: translateY(-2px);
     -webkit-transform: translateY(-2px);
     -moz-transform: translateY(-1px);
 		}
 		a:visited {
-			color: #23E9B4;
+			color: #12FFF7;
 		}
 	}
 
