@@ -9,7 +9,7 @@ function newItem() {
   li.appendChild(document.createTextNode(item));
   ul.appendChild(li);
    // Adds buttons to each list item
-  li.appendChild(btnWrapper).classList.add('btn_wrapper');;
+  li.appendChild(btnWrapper).classList.add('btn_wrapper');
   btnWrapper.appendChild(removeBtn).innerHTML = ('<i class="fa fa-times-circle" aria-hidden="true"></i>');
   btnWrapper.appendChild(completeBtn).innerHTML = ('<i class="fa fa-check-circle" aria-hidden="true"></i>');
   removeBtn.classList.add('delete_item');
