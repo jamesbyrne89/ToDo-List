@@ -1,15 +1,29 @@
-function newItem() {
-	var item = document.getElementById('input').value;
-	var ul = document.getElementById("list");
-	var li = document.createElement('li');
+  var j = 1;
+  var item = document.getElementById('input').value;
+  var list = document.getElementById("list");
+  var listItemHolder = document.createElement('li');
   var removeBtn = document.createElement('div');
   var completeBtn = document.createElement('div');
   var btnWrapper = document.createElement('div');
+
+function checkLocalStorage(){
+   for (var i = 1; i < localStorage.length; i++){
+    console.log(localStorage.getItem(`task-${i}`));
+    listItemHolder.appendChild(document.createTextNode(`task-${i}`));
+   }
+    };
+checkLocalStorage();
+
+function newItem() {
+
   // Adds new item to list
-  li.appendChild(document.createTextNode(item));
-  ul.appendChild(li);
+  listItemHolder.appendChild(document.createTextNode(item));
+  localStorage.setItem(`task-${j}`, item);
+  j++;
+  console.log(localStorage);
+  list.appendChild(listItemHolder);
    // Adds buttons to each list item
-  li.appendChild(btnWrapper).classList.add('btn_wrapper');
+  listItemHolder.appendChild(btnWrapper).classList.add('btn_wrapper');
   btnWrapper.appendChild(removeBtn).innerHTML = ('<i class="fa fa-times-circle" aria-hidden="true"></i>');
   btnWrapper.appendChild(completeBtn).innerHTML = ('<i class="fa fa-check-circle" aria-hidden="true"></i>');
   removeBtn.classList.add('delete_item');
@@ -23,6 +37,7 @@ function newItem() {
 document.body.onkeyup = function(e){
   var item = document.getElementById('input').value;
       if(e.keyCode == 13 && item!==""){
+        console.log("item = " + item)
         newItem();
       }
   }
@@ -76,3 +91,4 @@ parent.removeChild(listItem);
   document.getElementById('month').innerHTML = (months[month_value]);
   document.getElementById('year').innerHTML = (year_value);
     document.getElementById('day').innerHTML = (days[day_value]);
+   
