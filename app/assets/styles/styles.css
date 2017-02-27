@@ -176,6 +176,11 @@ background: transparent;
 width: 50%;
 line-height: 1em !important;
 flex: 1 0 25px;
+border: none;
+color: #9A999C;
+font-size: 1.25rem;
+padding: 0;
+text-align: right;
 }
 .delete_item:hover {
 	cursor: pointer;
@@ -191,6 +196,11 @@ line-height: 1em !important;
 background: transparent;
 width: 50%;
 flex: 1 0 25px;
+border: none;
+color: #9A999C;
+font-size: 1.25rem;
+padding: 0;
+text-align: right;
 }
 .completed:hover {
 	cursor: pointer;
