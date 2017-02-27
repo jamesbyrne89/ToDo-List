@@ -48,8 +48,6 @@ removeBtn.onclick = removeItem;
 
 }
 
-
-
 document.body.onkeyup = function(e){
   var item = document.getElementById('input').value;
       if(e.keyCode == 13 && item!==""){
