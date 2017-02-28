@@ -62,6 +62,7 @@ document.body.onkeyup = function(e){
 var completed = this.parentNode.parentNode;
 (completed).classList.toggle('completed_task')
   }
+  
   // Delete an item
 
     function removeItem() {
