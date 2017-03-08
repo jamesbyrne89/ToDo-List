@@ -59,6 +59,10 @@ watch('app/index.html', function(){
   browserSync.reload();
 });
 
+watch('app/assets/scripts/app.js', function(){
+  browserSync.reload();
+});
+
 // Compile CSS
 gulp.task('compilecss', function(){
 

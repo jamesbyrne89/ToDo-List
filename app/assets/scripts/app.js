@@ -1,58 +1,44 @@
-  var j = 1;
+const list = document.getElementById('list');
+const input = document.getElementById('input');
 
-
-function checkLocalStorage(){
-   for (var i = 1; i < localStorage.length; i++){
-    console.log(localStorage.getItem(`task-${i}`));
-      var item = document.getElementById('input').value;
-  var list = document.getElementById("list");
-  var listItemHolder = document.createElement('li');
-  var removeBtn = document.createElement('div');
-  var completeBtn = document.createElement('div');
-  var btnWrapper = document.createElement('div');
-    list.appendChild(listItemHolder);
-    listItemHolder.appendChild(document.createTextNode(localStorage.getItem(`task-${i}`)))
-    listItemHolder.appendChild(btnWrapper).classList.add('btn_wrapper');
-  btnWrapper.appendChild(removeBtn).innerHTML = ('<i class="fa fa-times-circle" aria-hidden="true"></i>');
-  btnWrapper.appendChild(completeBtn).innerHTML = ('<i class="fa fa-check-circle" aria-hidden="true"></i>');
-  removeBtn.classList.add('delete_item');
-  completeBtn.classList.add('completed');
-   }
-    };
-checkLocalStorage();
-
-function newItem(item) {
-  var item = document.getElementById('input').value;
-  var list = document.getElementById("list");
-  var listItemHolder = document.createElement('li');
-  var removeBtn = document.createElement('div');
-  var completeBtn = document.createElement('div');
-  var btnWrapper = document.createElement('div');
-  // Adds new item to list
-  list.appendChild(listItemHolder);
-  listItemHolder.appendChild(document.createTextNode(item));
-  localStorage.setItem(`task-${j}`, item);
-  j++;
-  list.appendChild(listItemHolder);
-   // Adds buttons to each list item
-  listItemHolder.appendChild(btnWrapper).classList.add('btn_wrapper');
-  btnWrapper.innerHTML = (`<button id="delete_item" class="delete_item"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-    <button id="completed" class="completed"><i class="fa fa-check-circle" aria-hidden="true"></i></button>`);
- var removeBtn = document.getElementById('delete_item');
-  var completeBtn = document.getElementById('completed');
+//function defineTaskObject() {
+function task(){
   
-  document.getElementById('input').value="";
-removeBtn.onclick = removeItem;
-    completeBtn.onclick = markCompleted;
-  console.log(removeBtn.onclick)
+}
+//}
 
+function createNewItem(){
+  var task = new task();
+  task.container = document.createElement('li');
+  task.taskName =  input.value;
+  task.removeBtn = document.createElement('button');
+  task.completeBtn = document.createElement('button');
+  task.btnWrapper = document.createElement('div');
 }
 
+function addItemToList(){
+  list.appendChild(listItemHolder);  
+   document.getElementById('input').value="";
+}
+  // Adds new item to list
+
+   // Adds buttons to each list item
+
+//  btnWrapper.innerHTML = (`<button id="delete_item" class="delete_item"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+ //   <button id="completed" class="completed"><i class="fa fa-check-circle" aria-hidden="true"></i></button>`);
+
+  
+ 
+
+  
+//removeBtn.onclick = removeItem;
+//completeBtn.addEventListener('click', markCompleted);
+
 document.body.onkeyup = function(e){
-  var item = document.getElementById('input').value;
-      if(e.keyCode == 13 && item!==""){
-        console.log("item = " + item)
-        newItem(item);
+  
+      if(e.keyCode == 13 && input.value!==""){
+        console.log("item = " + input.value);
+        createNewItem();
       }
   }
 
@@ -66,9 +52,9 @@ var completed = this.parentNode.parentNode;
   // Delete an item
 
     function removeItem() {
-var listItem = this.parentNode.parentNode;
-var parent = listItem.parentNode;
-parent.removeChild(listItem);
+//var listItem = this.parentNode.parentNode;
+//var parent = listItem.parentNode;
+//parent.removeChild(listItem);
 console.log(this)
   }
 
