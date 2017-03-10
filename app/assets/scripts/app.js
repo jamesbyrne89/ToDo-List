@@ -1,33 +1,37 @@
 const list = document.getElementById('list');
 const input = document.getElementById('input');
 
-//function defineTaskObject() {
-function task(){
-  
-}
-//}
 
-function createNewItem(){
-  var task = new task();
+// Creates a generic task
+
+function task(){
   task.container = document.createElement('li');
   task.taskName =  input.value;
   task.removeBtn = document.createElement('button');
   task.completeBtn = document.createElement('button');
   task.btnWrapper = document.createElement('div');
+  task.taskName;
 }
+
+// Adds new item to list
 
 function addItemToList(){
-  list.appendChild(listItemHolder);  
-   document.getElementById('input').value="";
-}
-  // Adds new item to list
-
-   // Adds buttons to each list item
-
-//  btnWrapper.innerHTML = (`<button id="delete_item" class="delete_item"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
- //   <button id="completed" class="completed"><i class="fa fa-check-circle" aria-hidden="true"></i></button>`);
+ new task();
+ list.appendChild(task.container);
+ this.taskName = document.createTextNode(input.value);
+ task.container.appendChild(this.taskName);
+ console.log(task.container);
+  input.value="";
 
   
+
+   // Adds buttons to each list item
+var btnWrapper = document.createElement('div');
+btnWrapper.className = 'btn_wrapper';
+  btnWrapper.innerHTML = (`<button id="delete_item" class="delete_item"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+   <button id="completed" class="completed"><i class="fa fa-check-circle" aria-hidden="true"></i></button>`);
+task.container.appendChild(btnWrapper);
+}  
  
 
   
@@ -38,7 +42,8 @@ document.body.onkeyup = function(e){
   
       if(e.keyCode == 13 && input.value!==""){
         console.log("item = " + input.value);
-        createNewItem();
+        task();
+        addItemToList();
       }
   }
 
