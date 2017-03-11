@@ -40,6 +40,7 @@ var newTask = function(item) {
   listItem.appendChild(buttons);
 
   removeBtn.addEventListener('click', deleteTask);
+  completedBtn.addEventListener('click', markCompleted);
 
 };
 
@@ -85,7 +86,7 @@ document.body.onkeyup = function(e) {
 
 function markCompleted() {
   var completed = this.parentNode.parentNode;
-  (completed).classList.toggle('completed_task')
+  completed.classList.toggle('completed_task')
 }
 
 
