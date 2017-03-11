@@ -2,13 +2,27 @@ const list = document.getElementById('list');
 const input = document.getElementById('input');
 
 
-// Creates a generic task
+// Checks for tasks stored in localStorage and adds to DOM
 
-var newTask = function() {
+function checkStoredItems() {
+  var i = 0;
+  for (var i = 0; i < localStorage.length; i++) {
+    if (localStorage['task-' + i] !== undefined) {
+      newTask(localStorage['task-' + i]);
+    }
+  }
+}
+
+
+/**
+Creates a generic task
+**/
+
+var newTask = function(item) {
 
   // Create elements
   var listItem = document.createElement('li');
-  var taskName = input.value;
+  var taskName = item;
 
   // Create buttons
   var buttons = create('div', 'btn_wrapper');
@@ -27,12 +41,6 @@ var newTask = function() {
 
   removeBtn.addEventListener('click', deleteTask);
 
-  function addToLocalStorage() {
-    var someVar = taskName;
-    localStorage.setItem(someVar, someVar);
-  }
-  addToLocalStorage()
-  input.value = "";
 };
 
 function create(el, elClass) {
@@ -41,24 +49,35 @@ function create(el, elClass) {
   return element;
 }
 
+/**
+Deletes a task from the DOM and localStorage
+**/
 
 function deleteTask(event) {
 
   var task = this.parentNode.parentNode;
   var taskName = (task.innerText).trim();
-  localStorage.removeItem(taskName);
   var parent = task.parentNode;
+
+ for (item in localStorage){
+  if (localStorage[item] === taskName) {
+    localStorage.removeItem(item);
+  }
+ }
   parent.removeChild(task);
+
+}
+
+function addToLocalStorage(item) {
+  localStorage.setItem('task-' + localStorage.length, item);
 }
 
 
-
-//removeBtn.onclick = removeItem;
-//completeBtn.addEventListener('click', markCompleted);
-
 document.body.onkeyup = function(e) {
   if (e.keyCode == 13 && input.value !== "") {
-    newTask();
+    newTask(input.value);
+    addToLocalStorage(input.value);
+    input.value = "";
   }
 }
 
@@ -69,47 +88,40 @@ function markCompleted() {
   (completed).classList.toggle('completed_task')
 }
 
-// Delete an item
-
-function removeItem() {
-  //var listItem = this.parentNode.parentNode;
-  //var parent = listItem.parentNode;
-  //parent.removeChild(listItem);
-  console.log(this)
-}
 
 // Get date
+      var days = new Array(7);
+      days[0] = "Sunday";
+      days[1] = "Monday";
+      days[2] = "Tuesday";
+      days[3] = "Wednesday";
+      days[4] = "Thursday";
+      days[5] = "Friday";
+      days[6] = "Saturday";
 
-var days = new Array(7);
-days[0] = "Sunday";
-days[1] = "Monday";
-days[2] = "Tuesday";
-days[3] = "Wednesday";
-days[4] = "Thursday";
-days[5] = "Friday";
-days[6] = "Saturday";
+      var months = new Array(12);
+      months[0] = "Jan";
+      months[1] = "Feb";
+      months[2] = "Mar";
+      months[3] = "Apr";
+      months[4] = "May";
+      months[5] = "Jun";
+      months[6] = "Jul";
+      months[7] = "Aug";
+      months[8] = "Sep";
+      months[9] = "Oct";
+      months[10] = "Nov";
+      months[11] = "Dec";
 
-var months = new Array(12);
-months[0] = "Jan";
-months[1] = "Feb";
-months[2] = "Mar";
-months[3] = "Apr";
-months[4] = "May";
-months[5] = "Jun";
-months[6] = "Jul";
-months[7] = "Aug";
-months[8] = "Sep";
-months[9] = "Oct";
-months[10] = "Nov";
-months[11] = "Dec";
+      var current_date = new Date();
+      month_value = current_date.getMonth();
+      date_value = current_date.getDate();
+      day_value = current_date.getDay();
+      year_value = current_date.getFullYear();
 
-var current_date = new Date();
-month_value = current_date.getMonth();
-date_value = current_date.getDate();
-day_value = current_date.getDay();
-year_value = current_date.getFullYear();
+      document.getElementById('date').innerHTML = (date_value);
+      document.getElementById('month').innerHTML = (months[month_value]);
+      document.getElementById('year').innerHTML = (year_value);
+      document.getElementById('day').innerHTML = (days[day_value]);
 
-document.getElementById('date').innerHTML = (date_value);
-document.getElementById('month').innerHTML = (months[month_value]);
-document.getElementById('year').innerHTML = (year_value);
-document.getElementById('day').innerHTML = (days[day_value]);
+checkStoredItems();
